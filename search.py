@@ -30,8 +30,8 @@ def func(idx, env, pop):
             done = False
             while not done:
                 action = p.eval(*s)
-                action = 0 if action<0 else 1
-                s, r, done, _ = env.step(action)
+                # action = 0 if action<0 else 1
+                s, r, done, _ = env.step([action])
                 reward += r
         reward /= config.Epoch
         p.fitness = reward
@@ -40,8 +40,8 @@ def func(idx, env, pop):
         pickle.dump(reward_pop,f)
     # print(idx, (time.time()-tick) / (len(pop)*config.Epoch), ' finished!')
 
-env = gym.make('CartPole-v1')
-pop = create_population(config.MU+config.LAMBDA, input_dim=4, out_dim=1)
+env = gym.make('Pendulum-v1')  #CartPole-v1
+pop = create_population(config.MU+config.LAMBDA, input_dim=3, out_dim=1)
 best_f = -inf
 best_ff = -inf
 best_ind = None
