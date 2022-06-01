@@ -59,7 +59,7 @@ for g in range(config.N_GEN):
     process = []
     
     for i in range(config.n_process):
-        process.append(Process(target=func, args=(i, pop[i*agent_p:(i+1)*agent_p])))
+        process.append(Process(target=func, args=(i, env, pop[i*agent_p:(i+1)*agent_p])))
 
     [p.start() for p in process]
     [p.join() for p in process]
