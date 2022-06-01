@@ -8,4 +8,4 @@ class config:
     n_process = 40
     N_GEN = 1000
     solved = 500
-    Epoch = 5
+    Epoch = 20

@@ -38,7 +38,7 @@ def func(idx, env, pop):
         reward_pop.append(reward)
     with open('./tmp/'+str(idx)+'.pkl','wb') as f:
         pickle.dump(reward_pop,f)
-    print(idx, (time.time()-tick) / (len(pop)*config.Epoch), ' finished!')
+    # print(idx, (time.time()-tick) / (len(pop)*config.Epoch), ' finished!')
 
 env = gym.make('CartPole-v1')
 pop = create_population(config.MU+config.LAMBDA, input_dim=4, out_dim=1)
