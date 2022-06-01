@@ -3,7 +3,7 @@
 '''
 from multiprocessing import Process
 import numpy as np
-import time, os, random, pickle, gym
+import time, os, random, shutil, pickle, gym
 from cmath import inf
 from cgp import *
 import matplotlib.pyplot as plt
@@ -63,7 +63,7 @@ for g in range(config.N_GEN):
 
     [p.start() for p in process]
     [p.join() for p in process]
-    '''
+    
     fitness = []
     for i in range(config.n_process):
         with open('./tmp/'+str(i)+'.pkl','rb') as f:
@@ -75,9 +75,9 @@ for g in range(config.N_GEN):
     fitness = np.array(fitness)
     idx = fitness.argsort()[::-1][0:config.MU]
     shutil.rmtree('./tmp/',True)
-    '''
     
-    # pop = evolve(pop, config.MUT_PB, config.MU, config.LAMBDA)
+    
+    pop = evolve(pop, config.MUT_PB, config.MU, config.LAMBDA)
     print(g,'time for one generation:', time.time()-tick, pop[0].fitness)
     #if pop[0].fitness > config.solved:
     if g % 10 == 9:
