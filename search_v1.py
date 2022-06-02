@@ -92,9 +92,7 @@ for i in range(100):
     s = env.reset()
     while not done:
         action = pop[0].eval(*s)
-        action = np.min(np.max(action, 0), 200)
-        # action = np.random.choice(4,p=action)
-        s, r, done, _ = env.step(action)
+        s, r, done, _ = env.step([action])
         r_e += r
     rr += r_e
     print(i, r_e)
