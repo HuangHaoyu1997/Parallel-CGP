@@ -157,7 +157,6 @@ class Individual:
                     node.i_inputs[i] = random.randint(max(pos - self.level_back, -self.n_inputs), pos - 1)
                 if node.weights[i] is None or random.random() < mut_rate:
                     # 节点之间不再设置随机权重，统一固定1.0
-                    # 【创新】分两阶段，先学结构，再学参数
                     node.weights[i] = 1.0 # random.uniform(self.weight_range[0], self.weight_range[1])
             # initially an individual is not active except the last output node
             node.active = False
