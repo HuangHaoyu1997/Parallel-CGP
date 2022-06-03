@@ -2,11 +2,11 @@ import pickle, cma, copy, gym, ray, time
 from cgp import *
 from configuration import config
 
-# ray.init(num_cpus=config.n_process)
+ray.init(num_cpus=config.n_process)
+env_name = 'LunarLanderContinuous-v2'
 
-with open('./results/CGP_SP-79.pkl', 'rb') as f:
+with open('./results/CGP_LunarLanderContinuous-v2-79.pkl', 'rb') as f:
     pop = pickle.load(f)
-
 
 pop[0]._determine_active_nodes()
 weights, n_active = [], 0
@@ -32,7 +32,7 @@ def func(ind:Individual, solution):
             pointer += node.arity
     reward = 0
     for i in range(config.Epoch):
-        env = gym.make('Pendulum-v1')
+        env = gym.make(env_name)
         env.seed(int(time.time()*1000))
         s = env.reset()
         done, rr = False, 0
@@ -42,7 +42,7 @@ def func(ind:Individual, solution):
             rr += r
             reward += r
     return -reward/config.Epoch
-print('best fitness before weight search:', pop[0].fitness)
+print('best fitness before weight search:', pop[0].fitness, n_active)
 print('start training')
 for i in range(config.N_GEN):
     solutions = es.ask()
