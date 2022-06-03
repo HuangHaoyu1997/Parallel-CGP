@@ -20,19 +20,21 @@ def func(env, ind:Individual):
     tick = time.time()
     reward = 0
     for _ in range(config.Epoch):
+        env.seed(int(time.time()*1000))
         s = env.reset()
         done = False
         while not done:
             action = ind.eval(*s)
             # action = 0 if action<0 else 1
-            s, r, done, _ = env.step([action])
+            s, r, done, _ = env.step(action)
             reward += r
     reward /= config.Epoch
     ind.fitness = reward
     return reward
 
-env = gym.make('Pendulum-v1')  #CartPole-v1
-pop = create_population(config.MU+config.LAMBDA, input_dim=3, out_dim=1)
+env_name= 'LunarLanderContinuous-v2' # 'CartPole-v1'  'Pendulum-v1'
+env = gym.make(env_name)
+pop = create_population(config.MU+config.LAMBDA, input_dim=8, out_dim=2)
 best_f = -inf
 best_ff = -inf
 best_ind = None
@@ -41,19 +43,18 @@ total_agent = config.MU + config.LAMBDA
 
 # 开始搜索
 for g in range(config.N_GEN):
-    
     # 运行1代总时间
     tick = time.time()
     fit_list = [func.remote(env, p) for p in pop]
     fitness = ray.get(fit_list)
-    for f,p in zip(fitness,pop):
+    for f,p in zip(fitness, pop):
         p.fitness = f
 
     pop = evolve(pop, config.MUT_PB, config.MU, config.LAMBDA)
     print(g,'time for one generation:', time.time()-tick, pop[0].fitness)
     if g % 10 == 9:
-        with open('./results/CGP_SP-'+str(g)+'.pkl','wb') as f:
-            pickle.dump(pop,f)
+        with open('./results/CGP_'+env_name+'-'+str(g)+'.pkl','wb') as f:
+            pickle.dump(pop, f)
 ray.shutdown()
 
 rr = 0
@@ -63,7 +64,7 @@ for i in range(100):
     s = env.reset()
     while not done:
         action = pop[0].eval(*s)
-        s, r, done, _ = env.step([action])
+        s, r, done, _ = env.step(action)
         r_e += r
     rr += r_e
     print(i, r_e)
