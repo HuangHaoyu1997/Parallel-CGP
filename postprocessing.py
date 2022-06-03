@@ -165,5 +165,5 @@ if __name__ == '__main__':
     # formula = simplify(g, ) # ['x']
     # formula = round_expr(formula, config.PP_FORMULA_NUM_DIGITS)
     # print(pop[0].fitness, formula, type(formula.__str__))
-    visualize(g, "./results/lunarlander.jpg", operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP)
+    visualize(g, "./results/lunarlander.png", operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP)
 
