@@ -9,12 +9,13 @@ Reference
 2. [Binary expression tree](https://en.wikipedia.org/wiki/Binary_expression_tree). Note that the operators are not required
 to be binary though.
 
+conda install graphviz
+conda install pygraphviz
 需要安装pygraphviz, https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygraphviz
 需要安装graphviz, https://graphviz.org/download/, 将路径下/bin/加入系统变量, 重启系统, 才不会报错"ValueError: Program neato not found in path."
 """
-import cgp
+import cgp, pickle, operator, pygraphviz
 import sympy as sp
-import operator
 from typing import Dict, Sequence
 import networkx as nx
 from configuration import config
@@ -124,7 +125,6 @@ def visualize(g: nx.MultiDiGraph, to_file: str, input_names: Sequence = None, op
     """
 
     from networkx.drawing.nx_agraph import to_agraph
-    import pygraphviz
     layout = 'dot' # 'neato' # 会改变graph的样式
 
     # label each function node with an operator
@@ -158,3 +158,12 @@ def visualize(g: nx.MultiDiGraph, to_file: str, input_names: Sequence = None, op
     ag.layout(layout)
     ag.draw(to_file)
     
+if __name__ == '__main__':
+    with open('./results/CGP_LunarLanderContinuous-v2-79.pkl', 'rb') as f:
+        pop = pickle.load(f)
+    g = extract_computational_subgraph(pop[0])
+    # formula = simplify(g, ) # ['x']
+    # formula = round_expr(formula, config.PP_FORMULA_NUM_DIGITS)
+    # print(pop[0].fitness, formula, type(formula.__str__))
+    visualize(g, "./results/lunarlander.jpg", operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP)
+
