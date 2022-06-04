@@ -31,17 +31,17 @@ def func(ind:Individual, solution):
             node.weights = solution[pointer:pointer+node.arity]
             pointer += node.arity
     reward = 0
-    for i in range(config.Epoch):
+    for i in range(config.rollout_episode):
         env = gym.make(env_name)
         env.seed(int(time.time()*1000))
         s = env.reset()
         done, rr = False, 0
         while not done:
             action = ind.eval(*s)
-            s, r, done, _ = env.step([action])
+            s, r, done, _ = env.step(action)
             rr += r
             reward += r
-    return -reward/config.Epoch
+    return -reward/config.rollout_episode
 print('best fitness before weight search:', pop[0].fitness, n_active)
 print('start training')
 for i in range(config.N_GEN):

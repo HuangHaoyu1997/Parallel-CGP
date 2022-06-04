@@ -1,5 +1,5 @@
 '''
-多进程CGP算法训练Social Production policy
+Multiprocess CGP for gym classical control
 '''
 from multiprocessing import Process
 import numpy as np
@@ -16,10 +16,10 @@ np.random.seed(config.seed)
 random.seed(config.seed)
 
 @ray.remote
-def func(env, ind:Individual):
+def rollout(env, ind:Individual):
     tick = time.time()
     reward = 0
-    for _ in range(config.Epoch):
+    for _ in range(config.rollout_episode):
         env.seed(int(time.time()*1000))
         s = env.reset()
         done = False
@@ -28,31 +28,26 @@ def func(env, ind:Individual):
             # action = 0 if action<0 else 1
             s, r, done, _ = env.step(action)
             reward += r
-    reward /= config.Epoch
-    ind.fitness = reward
+    reward /= config.rollout_episode
     return reward
 
-env_name= 'LunarLanderContinuous-v2' # 'CartPole-v1'  'Pendulum-v1'
+env_name= 'BipedalWalker-v3' # 'CartPole-v1'  'Pendulum-v1'  'LunarLanderContinuous-v2'
 env = gym.make(env_name)
-pop = create_population(config.MU+config.LAMBDA, input_dim=8, out_dim=2)
+pop = create_population(config.MU+config.LAMBDA, input_dim=24, out_dim=4)
 best_f = -inf
 best_ff = -inf
 best_ind = None
 
-total_agent = config.MU + config.LAMBDA
-
-# 开始搜索
+# training
 for g in range(config.N_GEN):
-    # 运行1代总时间
     tick = time.time()
-    fit_list = [func.remote(env, p) for p in pop]
+    fit_list = [rollout.remote(env, p) for p in pop]
     fitness = ray.get(fit_list)
     for f,p in zip(fitness, pop):
         p.fitness = f
-
     pop = evolve(pop, config.MUT_PB, config.MU, config.LAMBDA)
-    print(g,'time for one generation:', time.time()-tick, pop[0].fitness)
-    if g % 10 == 9:
+    print(g,'time:', round(time.time()-tick, 2),'best fitness:', pop[0].fitness)
+    if g % config.ckpt_freq == 0:
         with open('./results/CGP_'+env_name+'-'+str(g)+'.pkl','wb') as f:
             pickle.dump(pop, f)
 ray.shutdown()

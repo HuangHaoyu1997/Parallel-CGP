@@ -25,7 +25,7 @@ def func(idx, env, pop):
     tick = time.time()
     for p in pop: # 遍历每个individual
         reward = 0
-        for _ in range(config.Epoch):
+        for _ in range(config.rollout_episode):
             s = env.reset()
             done = False
             while not done:
@@ -33,7 +33,7 @@ def func(idx, env, pop):
                 # action = 0 if action<0 else 1
                 s, r, done, _ = env.step([action])
                 reward += r
-        reward /= config.Epoch
+        reward /= config.rollout_episode
         p.fitness = reward
         reward_pop.append(reward)
     with open('./tmp/'+str(idx)+'.pkl','wb') as f:
