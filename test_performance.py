@@ -18,10 +18,10 @@ def test(env, policy):
     print(np.mean(rr), np.std(rr))
 
 if __name__ == '__main__':
-    with open('./results/CGP_LunarLanderContinuous-v2-79.pkl', 'rb') as f:
+    with open('./results/CGP_BipedalWalker-v3-60.pkl', 'rb') as f:
         pop = pickle.load(f)
 
     policy:Individual = pop[0]
-    env = gym.make('LunarLanderContinuous-v2')
+    env = gym.make('BipedalWalker-v3') # 'LunarLanderContinuous-v2'
     
     test(env, policy)

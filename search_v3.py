@@ -3,9 +3,9 @@ from cgp import *
 from configuration import config
 
 ray.init(num_cpus=config.n_process)
-env_name = 'LunarLanderContinuous-v2'
+env_name = 'BipedalWalker-v3' # 'LunarLanderContinuous-v2'
 
-with open('./results/CGP_LunarLanderContinuous-v2-79.pkl', 'rb') as f:
+with open('./results/CGP_BipedalWalker-v3-60.pkl', 'rb') as f:
     pop = pickle.load(f)
 
 pop[0]._determine_active_nodes()
@@ -17,7 +17,7 @@ for node in pop[0].nodes:
 
 individual:Individual = copy.deepcopy(pop[0])
 es = cma.CMAEvolutionStrategy(
-    x0=[-1.]*len(weights),
+    x0=[0.]*len(weights),
     sigma0=1.0,
     inopts={'popsize':20},
 )
