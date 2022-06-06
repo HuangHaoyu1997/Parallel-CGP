@@ -17,9 +17,9 @@ for node in pop[0].nodes:
 
 individual:Individual = copy.deepcopy(pop[0])
 es = cma.CMAEvolutionStrategy(
-    x0=[0.]*len(weights),
-    sigma0=1.0,
-    inopts={'popsize':20},
+    x0=[1.]*len(weights),
+    sigma0=config.sigma0,
+    inopts={'popsize':config.popsize},
 )
 
 @ray.remote

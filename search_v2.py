@@ -34,6 +34,9 @@ def rollout(env, ind:Individual):
 env_name= 'BipedalWalker-v3' # 'CartPole-v1'  'Pendulum-v1'  'LunarLanderContinuous-v2'
 env = gym.make(env_name)
 pop = create_population(config.MU+config.LAMBDA, input_dim=24, out_dim=4)
+with open('./results/CGP_BipedalWalker-v3-120.pkl', 'rb') as f:
+    pop = pickle.load(f)
+
 best_f = -inf
 best_ff = -inf
 best_ind = None
