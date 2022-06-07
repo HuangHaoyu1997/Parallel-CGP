@@ -51,4 +51,3 @@ for i in range(config.N_GEN):
     es.tell(solutions, fitness)
     best_f, best_x = -es.best.f, es.best.x
     print(i, best_f)
-
