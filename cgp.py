@@ -101,7 +101,7 @@ class Individual:
                     if i_input >= 0:  # >=0表示node的父节点是一个hidden节点，而非input节点
                         # 该节点的父节点也设置为“激活”
                         self.nodes[i_input].active = True
-        
+        self.n_active = n_active
         if config.Verbose:
             print("# active genes: ", n_active)
 
