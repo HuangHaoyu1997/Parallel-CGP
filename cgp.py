@@ -32,7 +32,7 @@ class Individual:
     level_back = config.LEVEL_BACK # 后面的节点可以最远连接的前面节点的相对位置
     fitness = None
 
-    def __init__(self, input_dim, out_dim, function_set=fs):
+    def __init__(self, input_dim, out_dim, function_set=fs, out_random_active=False):
         # 【创新点：给不同位置的node设置不同的function set,人的先验知识可以起作用，可能需要给node class设置一个fun_set】
         self.function_set = function_set
         self.max_arity = max(f.arity for f in fs)
@@ -47,7 +47,14 @@ class Individual:
         
         # 将最后n_outputs个node设为输出节点
         for i in range(1, self.n_outputs + 1):
-            self.nodes[-i].active = True
+            # 输出节点有一定概率被关闭
+            if out_random_active:
+                if random.random() < 0.5:
+                    self.nodes[-i].active = True
+                else:
+                    self.nodes[-i].active = False
+            else:
+                self.nodes[-i].active = True
         
         self.fitness = None
         self._active_determined = False
@@ -187,9 +194,12 @@ def evolve(pop, mut_rate, mu, lambda_):
     return parents + offspring
 
 
-def create_population(n, input_dim, out_dim):
+def create_population(n, input_dim, out_dim, fs=fs, out_random_active=False):
     """Create a random population composed of n individuals."""
-    return [Individual(input_dim, out_dim, fs) for _ in range(n)]
+    return [Individual(input_dim, 
+                       out_dim, 
+                       fs, 
+                       out_random_active=out_random_active) for _ in range(n)]
 
 
 if __name__ == '__main__':
