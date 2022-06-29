@@ -7,8 +7,8 @@ import numpy as np
 from function import *
 from configuration import config
 
-np.random.seed(config.seed)
-random.seed(config.seed)
+# np.random.seed(config.seed)
+# random.seed(config.seed)
 
 class Node:
     """A node in CGP graph"""
@@ -49,7 +49,7 @@ class Individual:
         for i in range(1, self.n_outputs + 1):
             # 输出节点有一定概率被关闭
             if out_random_active:
-                if random.random() < 0.5:
+                if random.random() < 0.8:
                     self.nodes[-i].active = True
                 else:
                     self.nodes[-i].active = False

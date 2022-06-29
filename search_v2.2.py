@@ -23,6 +23,11 @@ run_time = (time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()))[:19]
 env_name = 'Oil' # 'CartPole-v1' # 'CartPoleContinuous'
 logdir = './results/log-'+env_name+'-'+run_time+'.txt'
 
+dir = './results/CGP_' + env_name
+if not os.path.exists(dir):
+    os.mkdir(dir)
+    
+    
 s_g = s_g_example()
 OW_config = Oil_Config()
 env = Oil_World(OW_config, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
@@ -32,16 +37,12 @@ env.reset()
 def func_wrapper(policy):
     pass
 
-dir = './results/CGP_' + env_name
-if not os.path.exists(dir):
-    os.mkdir(dir)
-
 @ray.remote
 def rollout(env:Oil_World, policy):
     
     policy_wrapped = func_wrapper(policy)
     env._add_mech(mech_name="new_mech",func=policy_wrapped,source_nodes=[1,2,3],target_nodes=[0])
-
+    ow._get_s_g_props_value()
     rewards = []
     for _ in range(config.rollout_episode):
         seed = int(str(time.time()).split('.')[1]) # if not test else config.seed
@@ -53,7 +54,11 @@ def rollout(env:Oil_World, policy):
     return np.mean(rewards)
     
 
-pop = create_population(config.MU+config.LAMBDA, input_dim=12, out_dim=3)
+pop = create_population(config.MU+config.LAMBDA, 
+                        input_dim=12, 
+                        out_dim=3,
+                        fs=fs,
+                        out_random_active=True)
 best_f = -inf
 best_ff = -inf
 best_ind = None
