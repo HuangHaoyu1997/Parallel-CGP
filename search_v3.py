@@ -1,3 +1,7 @@
+'''
+固定CGP结构, 搜索权重参数
+'''
+
 import pickle, cma, copy, gym, ray, time
 from cgp import *
 from configuration import config
