@@ -3,6 +3,7 @@
 
 '''
 from multiprocessing import Process
+from postprocessing import *
 import numpy as np
 import time, os, random, shutil, pickle, gym, ray
 from cmath import inf
@@ -90,4 +91,6 @@ for g in range(config.N_GEN):
     if g % config.ckpt_freq == 0:
         with open(os.path.join(dir, 'CGP-'+str(g)+'.pkl'), 'wb') as f:
             pickle.dump(pop, f)
+    g = extract_computational_subgraph(pop[0])
+    visualize(g, "./results/Oil_"+str(g)+".png", operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP)
 ray.shutdown()

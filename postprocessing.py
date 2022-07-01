@@ -9,6 +9,10 @@ Reference
 2. [Binary expression tree](https://en.wikipedia.org/wiki/Binary_expression_tree). Note that the operators are not required
 to be binary though.
 
+for Ubuntu
+conda install graphviz
+pip install pygraphviz
+
 conda install graphviz
 conda install pygraphviz
 需要安装pygraphviz, https://www.lfd.uci.edu/~gohlke/pythonlibs/#pygraphviz

@@ -8,12 +8,12 @@ class config:
     n_process = 8
     N_GEN = 1000
     solved = 300 # for BipedalWalker-v3
-    rollout_episode = 20
+    rollout_episode = 2
     MUT_PB = 0.1
     n_steps = 200
     ckpt_freq = 10
     sigma0 = 0.2 # for cma initial sigma
-    popsize = 30 # for cma population
+    popsize = 8 # for cma population
 
 class BipedalWalkerconfig:
     seed = 123
