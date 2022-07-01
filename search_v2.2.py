@@ -27,21 +27,25 @@ dir = './results/CGP_' + env_name
 if not os.path.exists(dir):
     os.mkdir(dir)
     
-    
+
+# creating env
 s_g = s_g_example()
 OW_config = Oil_Config()
 env = Oil_World(OW_config, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
 env.reset()
 
-
-def func_wrapper(policy):
+def func_wrapper(policy:Individual, input, output):
+    policy
     pass
 
 @ray.remote
 def rollout(env:Oil_World, policy):
     
     policy_wrapped = func_wrapper(policy)
-    env._add_mech(mech_name="new_mech",func=policy_wrapped,source_nodes=[1,2,3],target_nodes=[0])
+    env._add_mech(mech_name="new_mech",
+                  func=policy_wrapped,
+                  source_nodes=[0,1,2,3,4,5,6,7,8,9,10,11],
+                  target_nodes=[0,1,10])
     ow._get_s_g_props_value()
     rewards = []
     for _ in range(config.rollout_episode):
