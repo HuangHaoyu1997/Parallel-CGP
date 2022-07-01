@@ -1,11 +1,11 @@
 class config:
     seed = 123
-    N_COLS = 20
+    N_COLS = 30
     LEVEL_BACK = 30
     Verbose = False
     MU = 5
     LAMBDA = 200 - MU
-    n_process = 40
+    n_process = 8
     N_GEN = 1000
     solved = 300 # for BipedalWalker-v3
     rollout_episode = 20
@@ -14,6 +14,7 @@ class config:
     ckpt_freq = 10
     sigma0 = 0.2 # for cma initial sigma
     popsize = 30 # for cma population
+
 class BipedalWalkerconfig:
     seed = 123
     N_COLS = 100

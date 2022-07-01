@@ -18,7 +18,7 @@ pop = create_population(config.MU+config.LAMBDA,
                         input_dim=12, 
                         out_dim=3,
                         fs=fs,
-                        out_random_active=True
+                        out_random_active=False,
                         )
 pop[0]._determine_active_nodes()
 node1:Node = pop[0].nodes[-1]
@@ -38,4 +38,5 @@ ow = Oil_World(con, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
 # new_mech_example
 ow._add_mech(mech_name="new_mech",func=test_func,source_nodes=[1,2,3],target_nodes=[0])
 ow.reset()
-print(ow._get_s_g_props_value())
+input = ow._get_s_g_props_value()
+print(pop[0].eval(*input))

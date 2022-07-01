@@ -32,21 +32,18 @@ if not os.path.exists(dir):
 s_g = s_g_example()
 OW_config = Oil_Config()
 env = Oil_World(OW_config, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
-env.reset()
-
-def func_wrapper(policy:Individual, input, output):
-    policy
-    pass
 
 @ray.remote
 def rollout(env:Oil_World, policy):
+    def func_wrapper(input):
+        tmp = policy.eval(*input)
+        return tmp
     
-    policy_wrapped = func_wrapper(policy)
     env._add_mech(mech_name="new_mech",
-                  func=policy_wrapped,
+                  func=func_wrapper,
                   source_nodes=[0,1,2,3,4,5,6,7,8,9,10,11],
                   target_nodes=[0,1,10])
-    ow._get_s_g_props_value()
+    # ow._get_s_g_props_value()
     rewards = []
     for _ in range(config.rollout_episode):
         seed = int(str(time.time()).split('.')[1]) # if not test else config.seed
@@ -54,7 +51,21 @@ def rollout(env:Oil_World, policy):
         np.random.seed(seed)
         env.reset()
         
-        rewards.append(reward)
+        cycle_price = []
+        cycle_price_x = []
+        for i in range(975):  # max 975
+            a_l = []
+            obs1, obs2 = env._get_obs()
+            env._set_modulate_action(1)
+            re = env.step()
+            obs1, obs2 = env._get_obs()
+            obs1, obs2 = env._scale_obs(obs1, obs2)
+
+            if (i + 1) % 15 == 0 and i != 0:
+                cycle_price_x.append(len(cycle_price_x))
+                cycle_price.append(env.market.order_books[0].end_price)
+        
+        rewards.append(env._change_reward())
     return np.mean(rewards)
     
 
@@ -62,10 +73,7 @@ pop = create_population(config.MU+config.LAMBDA,
                         input_dim=12, 
                         out_dim=3,
                         fs=fs,
-                        out_random_active=True)
-best_f = -inf
-best_ff = -inf
-best_ind = None
+                        out_random_active=False)
 
 # training
 for g in range(config.N_GEN):
