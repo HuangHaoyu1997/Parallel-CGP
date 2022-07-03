@@ -38,7 +38,7 @@ env = Oil_World(OW_config, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
 def rollout(env:Oil_World, policy):
     def func_wrapper(input):
         tmp = policy.eval(*input)
-        return tmp
+        return np.clip(tmp, a_min=-1e2, a_max=1e1).tolist()
     
     env._add_mech(mech_name="new_mech",
                   func=func_wrapper,
