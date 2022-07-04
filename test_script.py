@@ -1,3 +1,9 @@
+'''
+草稿纸
+草稿纸
+草稿纸
+草稿纸
+'''
 from cgp import *
 from configuration import config
 from function import fs
