@@ -2,7 +2,6 @@
 不指定输入节点和输出节点, 搜索oil world规则
 
 '''
-from multiprocessing import Process
 from postprocessing import *
 import numpy as np
 import time, os, random, shutil, pickle, gym, ray
@@ -38,12 +37,13 @@ env = Oil_World(OW_config, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
 def rollout(env:Oil_World, policy):
     def func_wrapper(input):
         tmp = policy.eval(*input)
-        return np.clip(tmp, a_min=-1e2, a_max=1e1).tolist()
+        tmp = np.clip(tmp, a_min=-1.0, a_max=1.0).tolist()
+        return [tmp]
     
     env._add_mech(mech_name="new_mech",
                   func=func_wrapper,
                   source_nodes=[0,1,2,3,4,5,6,7,8,9,10,11],
-                  target_nodes=[0,1,10])
+                  target_nodes=[10])
     # ow._get_s_g_props_value()
     rewards = []
     for _ in range(config.rollout_episode):
@@ -51,28 +51,26 @@ def rollout(env:Oil_World, policy):
         random.seed(seed)
         np.random.seed(seed)
         env.reset()
-        
-        cycle_price = []
-        cycle_price_x = []
+        # env.reset_2(0)
         for i in range(975):  # max 975
-            a_l = []
             obs1, obs2 = env._get_obs()
-            env._set_modulate_action(1)
-            re = env.step()
+            a_l = []
+            for j, enter in enumerate(env.enters):
+                a = enter.rb_1_action(obs2[j][0], env.num_cycle, enter.type)
+                a_l.append(a)
+            env._set_action(a_l)
+            env._set_modulate_action(0.1)
+            rew = env.step()
             obs1, obs2 = env._get_obs()
             obs1, obs2 = env._scale_obs(obs1, obs2)
-
-            if (i + 1) % 15 == 0 and i != 0:
-                cycle_price_x.append(len(cycle_price_x))
-                cycle_price.append(env.market.order_books[0].end_price)
-        
-        rewards.append(env._change_reward())
+        r1, r2 = env._change_reward()
+        rewards.append(r1)
     return np.mean(rewards)
     
 
 pop = create_population(config.MU+config.LAMBDA, 
                         input_dim=12, 
-                        out_dim=3,
+                        out_dim=1,
                         fs=fs,
                         out_random_active=False)
 
@@ -91,6 +89,6 @@ for g in range(config.N_GEN):
     if g % config.ckpt_freq == 0:
         with open(os.path.join(dir, 'CGP-'+str(g)+'.pkl'), 'wb') as f:
             pickle.dump(pop, f)
-    g = extract_computational_subgraph(pop[0])
-    visualize(g, "./results/Oil_"+str(g)+".png", operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP)
+    gg = extract_computational_subgraph(pop[0])
+    visualize(gg, "./results/"+run_time+"_Oil_"+str(g)+".png", operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP)
 ray.shutdown()
