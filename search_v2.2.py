@@ -64,7 +64,7 @@ def rollout(env:Oil_World, policy):
                 a = enter.rb_1_action(obs2[j][0], env.num_cycle, enter.type)
                 a_l.append(a)
             env._set_action(a_l)
-            env._set_modulate_action(0.1)
+            # env._set_modulate_action(0.1)
             rew = env.step()
             obs1, obs2 = env._get_obs()
             obs1, obs2 = env._scale_obs(obs1, obs2)
