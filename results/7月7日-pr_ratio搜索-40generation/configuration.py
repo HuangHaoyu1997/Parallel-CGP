@@ -8,7 +8,7 @@ class config:
     n_process = 40
     N_GEN = 1000
     solved = 300 # for BipedalWalker-v3
-    rollout_episode = 5
+    rollout_episode = 20
     MUT_PB = 0.1
     n_steps = 200
     ckpt_freq = 10
