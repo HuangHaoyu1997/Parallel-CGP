@@ -10,7 +10,7 @@ from cgp import *
 from copy import deepcopy
 import matplotlib.pyplot as plt
 from configuration import config
-from paves.scenarios.oil_world.oil_world import Oil_World,s_g_example
+from paves.scenarios.oil_world.oil_world import Oil_World, s_g_example
 from paves.scenarios.oil_world.config import Oil_Config
 import warnings
 warnings.filterwarnings('ignore')
@@ -35,20 +35,27 @@ env = Oil_World(OW_config, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
 @ray.remote
 def rollout(env:Oil_World, policy):
     def func_wrapper(input):
-        input[0] = 1.0 if input[0] else 0.0
+        #####################################
+        ## 调整这里
+        #####################################
+        # print(input)
+        # input[0] = 1.0 if input[0] else 0.0
         input[3] = 1.0 if input[3] else 0.0
-        input[6] /= 100
+        input[5] /= 100
+        input[7] /= 1000
         input[8] /= 1000
-        input[9] /= 1000
-        
+        # print(input,'\n')
         tmp = policy.eval(*input)
         tmp = np.clip(tmp, a_min=0.0, a_max=1.0).tolist()
         return [tmp]
     
     env._add_mech(mech_name="new_mech",
                   func=func_wrapper,
-                  source_nodes=[1,2,3,4,5,6,7,8,9,10,11],
-                  target_nodes=[0])
+                  ########################################
+                  ## 调整这里
+                  ########################################
+                  source_nodes=[0,2,3,4,5,6,7,8,9,10,11],
+                  target_nodes=[1])
     # ow._get_s_g_props_value()
     rewards = []
     for _ in range(config.rollout_episode):
@@ -82,6 +89,7 @@ pop = create_population(config.MU+config.LAMBDA,
 # training
 for g in range(config.N_GEN):
     tick = time.time()
+    # rollout(env, pop[0])
     fit_list = [rollout.remote(env, p) for p in pop]
     fitness = ray.get(fit_list)
     for f,p in zip(fitness, pop):
@@ -92,14 +100,15 @@ for g in range(config.N_GEN):
         f.write(str(g)+' time:'+str(round(time.time()-tick, 2))+',best fitness:'+str(pop[0].fitness)+'\n')
 
     if g % config.ckpt_freq == 0:
-        with open(os.path.join(dir, 'CGP-'+str(g)+'.pkl'), 'wb') as f:
+        with open(os.path.join(dir, run_time+'CGP-'+str(g)+'.pkl'), 'wb') as f:
             pickle.dump(pop, f)
+            
     gg = extract_computational_subgraph(pop[0])
     visualize(g=gg, 
               to_file="./results/"+run_time+"_Oil_"+str(g)+".png", 
               operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP,
-              input_names=[# "close_clip",  # v0
-                           "close",       # v1
+              input_names=["close_clip",  # v0
+                           # "close",       # v1
                            "gdp",         # v2
                            "announce",    # v3
                            "need",        # v4
