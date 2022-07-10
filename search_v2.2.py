@@ -39,14 +39,22 @@ def rollout(env:Oil_World, policy):
         ## 调整这里
         #####################################
         # print(input)
-        # input[0] = 1.0 if input[0] else 0.0
+        # close_clip的归一化方案
+        input[0] = 1.0 if input[0] else 0.0
         input[3] = 1.0 if input[3] else 0.0
         input[5] /= 100
         input[7] /= 1000
         input[8] /= 1000
+        
+        # close的归一化方案
+        # input[3] = 1.0 if input[3] else 0.0
+        # input[5] /= 100
+        # input[7] /= 1000
+        # input[8] /= 1000
         # print(input,'\n')
+        
         tmp = policy.eval(*input)
-        tmp = np.clip(tmp, a_min=0.0, a_max=1.0).tolist()
+        # tmp = np.clip(tmp, a_min=0.0, a_max=1.0).tolist()
         return [tmp]
     
     env._add_mech(mech_name="new_mech",
@@ -54,8 +62,8 @@ def rollout(env:Oil_World, policy):
                   ########################################
                   ## 调整这里
                   ########################################
-                  source_nodes=[0,2,3,4,5,6,7,8,9,10,11],
-                  target_nodes=[1])
+                  source_nodes=[1,2,3,4,5,6,7,8,9,10,11],
+                  target_nodes=[0])
     # ow._get_s_g_props_value()
     rewards = []
     for _ in range(config.rollout_episode):
