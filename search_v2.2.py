@@ -80,7 +80,7 @@ for g in range(config.N_GEN):
     fit_list = [rollout.remote(env, p) for p in pop]
     fitness = ray.get(fit_list)
     for f,p in zip(fitness, pop):
-        p.fitness = f
+        p.fitness = -f
     pop = evolve(pop, config.MUT_PB, config.MU, config.LAMBDA)
     print(g,'time:', round(time.time()-tick, 2),'best fitness:', pop[0].fitness)
     with open(logdir,'a+') as f:

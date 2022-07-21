@@ -3,7 +3,7 @@ class config:
     N_COLS = 30
     LEVEL_BACK = 30
     Verbose = False
-    MU = 2
+    MU = 1
     LAMBDA = 100 - MU
     n_process = 8
     N_GEN = 1000
