@@ -13,6 +13,8 @@ from configuration import config
 from paves.scenarios.oil_world.oil_world import Oil_World, s_g_example
 from paves.scenarios.oil_world.config import Oil_Config
 import warnings
+
+from .utils import std
 warnings.filterwarnings('ignore')
 
 ray.init(num_cpus=config.n_process)
@@ -39,19 +41,19 @@ def rollout(env:Oil_World, policy):
         #####################################
         ## 调整这里
         #####################################
-        print('aa',input)
+        # print('aa',input)
         # close_clip的归一化方案
         # input[0] = 1.0 if input[0] else 0.0
         # input[3] = 1.0 if input[3] else 0.0
-        input[6] /= 1000
-        input[7] /= 1000
+        # input[6] /= 1000
+        # input[7] /= 1000
         
         # close的归一化方案
         # input[3] = 1.0 if input[3] else 0.0
         # input[5] /= 100
         # input[7] /= 1000
         # input[8] /= 1000
-        print(input,'\n')
+        # print(input, '\n')
         
         tmp = policy.eval(*input)
         # tmp = np.clip(tmp, a_min=0.0, a_max=1.0).tolist()
@@ -62,8 +64,8 @@ def rollout(env:Oil_World, policy):
                   ########################################
                   ## 调整这里
                   ########################################
-                  source_nodes=[2,3,4,5,6,7,8,9,10,11],
-                  target_nodes=[0])
+                  source_nodes=[8,9],
+                  target_nodes=[1])
     rewards = []
     for _ in range(config.rollout_episode):
         seed = int(str(time.time()).split('.')[1]) # if not test else config.seed
@@ -73,6 +75,7 @@ def rollout(env:Oil_World, policy):
         
         env.reset()
         # env.reset_2(0)
+        zeros = 0
         for i in range(960):  # max 975
             obs1, obs2 = env._get_obs()
             a_l = []
@@ -84,14 +87,20 @@ def rollout(env:Oil_World, policy):
             rew = env.step()
             obs1, obs2 = env._get_obs()
             obs1, obs2 = env._scale_obs(obs1, obs2)
-        r1 = np.std(env.simu_price)
-        # print(r1)
+            if env.market.order_books[0].t2t_deal_amount == 0:
+                zeros += 1
+        
+        r1 = std(env.simu_price)
+        if zeros >= 800:
+            r1 = 10000
+            rewards.append(r1)
+            continue
         rewards.append(r1)
     return np.mean(rewards)
     
 
 pop = create_population(config.MU+config.LAMBDA, 
-                        input_dim=11, 
+                        input_dim=2, 
                         out_dim=1,
                         fs=fs,
                         out_random_active=False)
@@ -119,17 +128,17 @@ for g in range(config.N_GEN):
               input_names=[
                             # "close_clip",    # v0
                             # "close",        # v1
-                            "gdp",          # v2
-                            "announce",     # v3
-                            "need",         # v4
-                            "weather",      # v5
-                            "geo_risk",     # v6
-                            "stock",        # v7
+                            # "gdp",          # v2
+                            # "announce",     # v3
+                            # "need",         # v4
+                            # "weather",      # v5
+                            # "geo_risk",     # v6
+                            # "stock",        # v7
                             "t2t_price",    # v8
                             "open_price",   # v9
-                            "pr_ratio",     # v10
-                            "stage",        # v11
-                            # "order_type",   # v12
+                            # "pr_ratio",     # v10
+                            # "stage",        # v11
+                            # " which ",   # v12
                             ],
                 )
 ray.shutdown()
