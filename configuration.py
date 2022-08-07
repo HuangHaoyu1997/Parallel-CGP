@@ -4,11 +4,11 @@ class config:
     LEVEL_BACK = 30
     Verbose = False
     MU = 2
-    LAMBDA = 100 - MU
+    LAMBDA = 12 - MU
     n_process = 8
     N_GEN = 1000
     solved = 300 # for BipedalWalker-v3
-    rollout_episode = 5
+    rollout_episode = 3
     MUT_PB = 0.1
     n_steps = 200
     ckpt_freq = 10
