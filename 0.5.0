@@ -1,0 +1,10 @@
+Collecting pyrfr
+  Downloading pyrfr-0.8.3.tar.gz (293 kB)
+Building wheels for collected packages: pyrfr
+  Building wheel for pyrfr (setup.py): started
+  Building wheel for pyrfr (setup.py): finished with status 'done'
+  Created wheel for pyrfr: filename=pyrfr-0.8.3-cp38-cp38-win_amd64.whl size=417284 sha256=28a07931f8e8ebb7e92f81c8927b7dabcc3eeb99b3ce4942a63b3219fb73790d
+  Stored in directory: c:\users\44670\appdata\local\pip\cache\wheels\88\7e\48\319500cc3cb94ab3f0542247b4b5e404a9218dd37f3b2447d4
+Successfully built pyrfr
+Installing collected packages: pyrfr
+Successfully installed pyrfr-0.8.3

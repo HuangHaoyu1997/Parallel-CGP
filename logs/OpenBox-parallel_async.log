@@ -1,0 +1,368 @@
+[INFO] [2022-07-26 02:43:20,835] [AsyncBatchAdvisor] === [BO auto selection] === surrogate_type: gp. acq_type: ei. acq_optimizer_type: random_scipy.
+[INFO] [2022-07-26 02:43:21,174] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 0.
+[INFO] [2022-07-26 02:43:21,175] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 1.
+[INFO] [2022-07-26 02:43:21,176] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:43:21,176] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 3.
+[INFO] [2022-07-26 02:43:37,926] [OpenBox-parallel_async] Update observation 1: Observation(config=Configuration(values={
+  'x1': 0.0,
+  'x2': 0.0,
+})
+, objs=55.602112642270264, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:43:37,931] [OpenBox-parallel_async] Update observation 2: Observation(config=Configuration(values={
+  'x1': 2.4620109259586105,
+  'x2': 14.967386315009104,
+})
+, objs=149.00761414702734, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:43:37,940] [OpenBox-parallel_async] Update observation 3: Observation(config=Configuration(values={
+  'x1': 9.941627022233183,
+  'x2': 3.5322246770530548,
+})
+, objs=1.9963767244012942, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:43:37,945] [OpenBox-parallel_async] Update observation 4: Observation(config=Configuration(values={
+  'x1': 7.640803697505337,
+  'x2': 12.232969866333681,
+})
+, objs=129.78984059172396, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:43:38,018] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 0.
+[INFO] [2022-07-26 02:43:39,057] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 1.
+[INFO] [2022-07-26 02:43:39,842] [OpenBox-parallel_async] Update observation 5: Observation(config=Configuration(values={
+  'x1': 4.295840821481956,
+  'x2': 4.572255480266083,
+})
+, objs=15.267338500090741, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:43:39,844] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 1.
+[INFO] [2022-07-26 02:43:40,510] [OpenBox-parallel_async] Update observation 6: Observation(config=Configuration(values={
+  'x1': 4.2958396667591465,
+  'x2': 4.57225593719998,
+})
+, objs=15.267327760056824, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:43:40,513] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 1.
+[INFO] [2022-07-26 02:43:40,666] [OpenBox-parallel_async] Update observation 7: Observation(config=Configuration(values={
+  'x1': 10.0,
+  'x2': 4.904452426047087,
+})
+, objs=5.558827019552455, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:44:38,414] [AsyncBatchAdvisor] === [BO auto selection] === surrogate_type: gp. acq_type: ei. acq_optimizer_type: random_scipy.
+[INFO] [2022-07-26 02:44:38,842] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 0.
+[INFO] [2022-07-26 02:44:38,848] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 1.
+[INFO] [2022-07-26 02:44:38,849] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:44:38,851] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 3.
+[INFO] [2022-07-26 02:45:05,072] [OpenBox-parallel_async] Update observation 1: Observation(config=Configuration(values={
+  'x1': 0.0,
+  'x2': 0.0,
+})
+, objs=55.602112642270264, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:05,079] [OpenBox-parallel_async] Update observation 2: Observation(config=Configuration(values={
+  'x1': 8.290677258213577,
+  'x2': 14.699333404120688,
+})
+, objs=175.3242533931652, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:05,084] [OpenBox-parallel_async] Update observation 3: Observation(config=Configuration(values={
+  'x1': -4.417656803846589,
+  'x2': 14.659411739545055,
+})
+, objs=8.007536629489548, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:05,090] [OpenBox-parallel_async] Update observation 4: Observation(config=Configuration(values={
+  'x1': 5.789583124978197,
+  'x2': 6.450312398229264,
+})
+, objs=46.913342821429275, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:05,093] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 0.
+[INFO] [2022-07-26 02:45:05,933] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 1.
+[INFO] [2022-07-26 02:45:05,937] [AsyncBatchAdvisor] Sample random config. rand_prob=0.100000.
+[INFO] [2022-07-26 02:45:05,939] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:07,142] [OpenBox-parallel_async] Update observation 5: Observation(config=Configuration(values={
+  'x1': 5.818428591769454,
+  'x2': 6.396780383605605,
+})
+, objs=46.50079500256845, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:07,145] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:08,724] [OpenBox-parallel_async] Update observation 6: Observation(config=Configuration(values={
+  'x1': -1.6312245720848262,
+  'x2': 5.068740876272621,
+})
+, objs=24.40614804562334, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:08,729] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:10,801] [OpenBox-parallel_async] Update observation 7: Observation(config=Configuration(values={
+  'x1': -4.369705957637081,
+  'x2': 14.664372034942017,
+})
+, objs=7.346474957346954, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:10,806] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:13,141] [OpenBox-parallel_async] Update observation 8: Observation(config=Configuration(values={
+  'x1': -5.0,
+  'x2': 11.123242786388847,
+})
+, objs=49.49727242093846, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:13,146] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:15,181] [OpenBox-parallel_async] Update observation 9: Observation(config=Configuration(values={
+  'x1': -5.0,
+  'x2': 10.30634370168104,
+})
+, objs=60.072139947417554, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:15,185] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:17,989] [OpenBox-parallel_async] Update observation 10: Observation(config=Configuration(values={
+  'x1': -2.2367859380156365,
+  'x2': 12.656309545641552,
+})
+, objs=10.070036156054657, trial_state=0, elapsed_time=9.226799011230469e-05).
+[INFO] [2022-07-26 02:45:17,992] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:21,743] [OpenBox-parallel_async] Update observation 11: Observation(config=Configuration(values={
+  'x1': -2.3643273283205026,
+  'x2': 15.0,
+})
+, objs=23.539690981473548, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:21,745] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:24,371] [OpenBox-parallel_async] Update observation 12: Observation(config=Configuration(values={
+  'x1': -2.0918430985259517,
+  'x2': 15.0,
+})
+, objs=31.28571645134604, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:24,376] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:27,293] [OpenBox-parallel_async] Update observation 13: Observation(config=Configuration(values={
+  'x1': -2.7511229773964136,
+  'x2': 15.0,
+})
+, objs=14.39715431490549, trial_state=0, elapsed_time=0.0015177726745605469).
+[INFO] [2022-07-26 02:45:27,296] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:29,156] [OpenBox-parallel_async] Update observation 14: Observation(config=Configuration(values={
+  'x1': -0.3837869115274124,
+  'x2': 9.210230257997228,
+})
+, objs=25.56198559261136, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:29,159] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:31,129] [OpenBox-parallel_async] Update observation 15: Observation(config=Configuration(values={
+  'x1': -3.413238126344251,
+  'x2': 13.672919212077876,
+})
+, objs=1.2910348022527138, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:31,133] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:33,435] [OpenBox-parallel_async] Update observation 16: Observation(config=Configuration(values={
+  'x1': 10.0,
+  'x2': 0.0,
+})
+, objs=10.960889035651505, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:33,438] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:36,118] [OpenBox-parallel_async] Update observation 17: Observation(config=Configuration(values={
+  'x1': 9.89312548160248,
+  'x2': 0.025042351620078174,
+})
+, objs=9.688056903388322, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:36,121] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:40,137] [OpenBox-parallel_async] Update observation 18: Observation(config=Configuration(values={
+  'x1': 9.98267956782211,
+  'x2': 0.01978212287323979,
+})
+, objs=10.651203650765687, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:40,139] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:43,122] [OpenBox-parallel_async] Update observation 19: Observation(config=Configuration(values={
+  'x1': 6.585321597679265,
+  'x2': 0.0,
+})
+, objs=20.424726237415417, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:43,124] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:46,447] [OpenBox-parallel_async] Update observation 20: Observation(config=Configuration(values={
+  'x1': 6.892341556955948,
+  'x2': 0.0,
+})
+, objs=19.237642698656693, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:46,450] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:50,256] [OpenBox-parallel_async] Update observation 21: Observation(config=Configuration(values={
+  'x1': 6.840543172682878,
+  'x2': 0.0,
+})
+, objs=19.48955471252484, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:50,261] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:53,701] [OpenBox-parallel_async] Update observation 22: Observation(config=Configuration(values={
+  'x1': 8.812533204876711,
+  'x2': 1.972227893698134,
+})
+, objs=2.1432229250423074, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:53,702] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:45:56,551] [OpenBox-parallel_async] Update observation 23: Observation(config=Configuration(values={
+  'x1': 9.15469805091533,
+  'x2': 2.3723571922127817,
+})
+, objs=0.7593665559852116, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:45:56,555] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:00,264] [OpenBox-parallel_async] Update observation 24: Observation(config=Configuration(values={
+  'x1': 9.10872190550532,
+  'x2': 2.2655041034109464,
+})
+, objs=0.8754464211965107, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:00,267] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:04,307] [OpenBox-parallel_async] Update observation 25: Observation(config=Configuration(values={
+  'x1': 10.0,
+  'x2': 3.501428360533753,
+})
+, objs=2.1916147537429644, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:04,308] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:04,309] [AsyncBatchAdvisor] Sample random config. rand_prob=0.100000.
+[INFO] [2022-07-26 02:46:04,311] [OpenBox-parallel_async] Update observation 26: Observation(config=Configuration(values={
+  'x1': 9.37134107880129,
+  'x2': 1.935747864837609,
+})
+, objs=0.6561691400920893, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:04,313] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:07,963] [OpenBox-parallel_async] Update observation 27: Observation(config=Configuration(values={
+  'x1': 9.89902034954176,
+  'x2': 2.980448482175778,
+})
+, objs=1.4634175251871877, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:07,966] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:10,926] [OpenBox-parallel_async] Update observation 28: Observation(config=Configuration(values={
+  'x1': -1.1367194107072502,
+  'x2': 8.93291379489295,
+})
+, objs=14.95394335476259, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:10,929] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:10,930] [AsyncBatchAdvisor] Sample random config. rand_prob=0.100000.
+[INFO] [2022-07-26 02:46:10,935] [OpenBox-parallel_async] Update observation 29: Observation(config=Configuration(values={
+  'x1': 2.6021645767734283,
+  'x2': 3.730239944763211,
+})
+, objs=2.755314748560668, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:10,938] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:16,490] [OpenBox-parallel_async] Update observation 30: Observation(config=Configuration(values={
+  'x1': 2.6706178628060515,
+  'x2': 3.601334218793894,
+})
+, objs=2.308919909947031, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:16,493] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:20,187] [OpenBox-parallel_async] Update observation 31: Observation(config=Configuration(values={
+  'x1': -3.7592465339612327,
+  'x2': 0.45194186049141605,
+})
+, objs=180.57373077963882, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:20,191] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:23,582] [OpenBox-parallel_async] Update observation 32: Observation(config=Configuration(values={
+  'x1': 3.389246284044109,
+  'x2': 2.297848400352608,
+})
+, objs=0.7341344038346147, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:23,586] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:28,950] [OpenBox-parallel_async] Update observation 33: Observation(config=Configuration(values={
+  'x1': 3.5555858688581132,
+  'x2': 3.026704568856801,
+})
+, objs=2.3166446052743774, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:28,954] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:32,966] [OpenBox-parallel_async] Update observation 34: Observation(config=Configuration(values={
+  'x1': 2.843128310174176,
+  'x2': 1.7985521500005595,
+})
+, objs=1.3418360409918648, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:32,969] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:37,910] [OpenBox-parallel_async] Update observation 35: Observation(config=Configuration(values={
+  'x1': 2.7584233899238058,
+  'x2': 2.0052724968647913,
+})
+, objs=1.4393607261963304, trial_state=0, elapsed_time=0.0010101795196533203).
+[INFO] [2022-07-26 02:46:37,913] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:42,299] [OpenBox-parallel_async] Update observation 36: Observation(config=Configuration(values={
+  'x1': 2.9884049216661586,
+  'x2': 2.407212104119898,
+})
+, objs=0.510425504648115, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:42,302] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:46,435] [OpenBox-parallel_async] Update observation 37: Observation(config=Configuration(values={
+  'x1': 3.0105037589176646,
+  'x2': 2.5228909699846414,
+})
+, objs=0.5008471375603296, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:46,439] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:46:53,265] [OpenBox-parallel_async] Update observation 38: Observation(config=Configuration(values={
+  'x1': -3.1394318152648486,
+  'x2': 12.25046283112801,
+})
+, objs=0.3982839946496295, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:46:53,268] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:04,008] [OpenBox-parallel_async] Update observation 39: Observation(config=Configuration(values={
+  'x1': -3.0474008592501365,
+  'x2': 11.971051163139743,
+})
+, objs=0.44664963537154456, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:04,012] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:04,013] [AsyncBatchAdvisor] Sample random config. rand_prob=0.100000.
+[INFO] [2022-07-26 02:47:04,018] [OpenBox-parallel_async] Update observation 40: Observation(config=Configuration(values={
+  'x1': -3.082461457027833,
+  'x2': 12.123278055770534,
+})
+, objs=0.4147707013589468, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:04,022] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:04,025] [AsyncBatchAdvisor] Sample random config. rand_prob=0.100000.
+[INFO] [2022-07-26 02:47:04,030] [OpenBox-parallel_async] Update observation 41: Observation(config=Configuration(values={
+  'x1': -3.1394845836149736,
+  'x2': 12.535190483590831,
+})
+, objs=0.46826949562944975, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:04,033] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:08,219] [OpenBox-parallel_async] Update observation 42: Observation(config=Configuration(values={
+  'x1': 1.2977819423378794,
+  'x2': 8.392671163951269,
+})
+, objs=30.57156969943071, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:08,222] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:13,777] [OpenBox-parallel_async] Update observation 43: Observation(config=Configuration(values={
+  'x1': -4.7200038964866655,
+  'x2': 14.203615772434807,
+})
+, objs=14.854043662935439, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:13,782] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:20,583] [OpenBox-parallel_async] Update observation 44: Observation(config=Configuration(values={
+  'x1': 9.543500731463661,
+  'x2': 2.607600610663013,
+})
+, objs=0.4664177367831339, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:20,587] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:25,683] [OpenBox-parallel_async] Update observation 45: Observation(config=Configuration(values={
+  'x1': 9.423344009694647,
+  'x2': 2.522878632862623,
+})
+, objs=0.4003068551333051, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:25,688] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:30,061] [OpenBox-parallel_async] Update observation 46: Observation(config=Configuration(values={
+  'x1': 9.44677418383111,
+  'x2': 2.8546047146685503,
+})
+, objs=0.5305224634270456, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:30,065] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:35,046] [OpenBox-parallel_async] Update observation 47: Observation(config=Configuration(values={
+  'x1': 3.6660088548882985,
+  'x2': 0.023640202279448703,
+})
+, objs=5.214823523111345, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:35,052] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:40,400] [OpenBox-parallel_async] Update observation 48: Observation(config=Configuration(values={
+  'x1': 3.148269984416771,
+  'x2': 2.3425930134509834,
+})
+, objs=0.40340047880056495, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:40,404] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:45,577] [OpenBox-parallel_async] Update observation 49: Observation(config=Configuration(values={
+  'x1': 3.1687869511564735,
+  'x2': 2.36673850627909,
+})
+, objs=0.41417294242487834, trial_state=0, elapsed_time=0.0009980201721191406).
+[INFO] [2022-07-26 02:47:45,580] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:51,240] [OpenBox-parallel_async] Update observation 50: Observation(config=Configuration(values={
+  'x1': 3.145939098117534,
+  'x2': 2.1577182385865643,
+})
+, objs=0.4109500340902432, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:51,244] [AsyncBatchAdvisor] #Call get_suggestion. len of running configs = 2.
+[INFO] [2022-07-26 02:47:58,265] [OpenBox-parallel_async] Update observation 51: Observation(config=Configuration(values={
+  'x1': 9.423291320954203,
+  'x2': 2.5229263640169717,
+})
+, objs=0.4003166498542239, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:58,275] [OpenBox-parallel_async] Update observation 52: Observation(config=Configuration(values={
+  'x1': 0.42819589510044054,
+  'x2': 4.942485494427496,
+})
+, objs=18.894963559026493, trial_state=0, elapsed_time=0.0).
+[INFO] [2022-07-26 02:47:58,280] [OpenBox-parallel_async] Update observation 53: Observation(config=Configuration(values={
+  'x1': 3.138941682956389,
+  'x2': 2.1545220602575132,
+})
+, objs=0.41293867668543527, trial_state=0, elapsed_time=0.0).
