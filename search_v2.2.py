@@ -14,7 +14,7 @@ from paves.scenarios.oil_world.oil_world import Oil_World, s_g_example
 from paves.scenarios.oil_world.config import Oil_Config
 import warnings
 
-from .utils import std
+from utils import bollinger_bands, bollinger_reward, std
 warnings.filterwarnings('ignore')
 
 ray.init(num_cpus=config.n_process)
@@ -90,12 +90,18 @@ def rollout(env:Oil_World, policy):
             if env.market.order_books[0].t2t_deal_amount == 0:
                 zeros += 1
         
-        r1 = std(env.simu_price)
         if zeros >= 800:
             r1 = 10000
             rewards.append(r1)
             continue
-        rewards.append(r1)
+        # 第一种损失函数-标准差
+        r1 = std(env.simu_price)
+        # 第二种损失函数-布林带平均宽度
+        Up, Low = bollinger_bands(env.simu_price, 10, 2)
+        r2 = bollinger_reward(Up, Low)
+        rewards.append(r2)
+        
+        
     return np.mean(rewards)
     
 
@@ -123,7 +129,7 @@ for g in range(config.N_GEN):
             
     gg = extract_computational_subgraph(pop[0])
     visualize(g=gg, 
-              to_file="./results/"+run_time+"_Oil_"+str(g)+".png", 
+              to_file="./results/"+run_time+"_Oil_"+str(g)+'_'+str(pop[0].fitness)+".png", 
               operator_map=DEFAULT_SYMBOLIC_FUNCTION_MAP,
               input_names=[
                             # "close_clip",    # v0
