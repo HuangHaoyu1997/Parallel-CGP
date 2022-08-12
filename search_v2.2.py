@@ -144,7 +144,7 @@ for g in range(config.N_GEN):
                             "open_price",   # v9
                             # "pr_ratio",     # v10
                             # "stage",        # v11
-                            # " which ",   # v12
+                            # "order_type",   # v12
                             ],
                 )
 ray.shutdown()

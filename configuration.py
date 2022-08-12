@@ -4,7 +4,7 @@ class config:
     LEVEL_BACK = 30
     Verbose = False
     MU = 2
-    LAMBDA = 12 - MU
+    LAMBDA = 24 - MU
     n_process = 8
     N_GEN = 1000
     solved = 300 # for BipedalWalker-v3

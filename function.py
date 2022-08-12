@@ -124,7 +124,7 @@ fs = [
         Function(max2, 2),
         Function(min2, 2),
         Function(tenth, 1),
-        Function(scaled, 1),
+        # Function(scaled, 1),
         Function(sign, 1),
         # Function(uniform, 2),
         # Function(uniform01, 0),
