@@ -56,6 +56,7 @@ def rollout(env:Oil_World, policy):
         # print(input, '\n')
         
         tmp = policy.eval(*input)
+        # print(tmp)
         # tmp = np.clip(tmp, a_min=0.0, a_max=1.0).tolist()
         return [tmp]
     
