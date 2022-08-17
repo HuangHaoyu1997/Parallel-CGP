@@ -1,7 +1,7 @@
 class config:
     seed = 1234
-    N_COLS = 30
-    LEVEL_BACK = 30
+    N_COLS = 8
+    LEVEL_BACK = 8
     Verbose = False
     MU = 2
     LAMBDA = 24 - MU

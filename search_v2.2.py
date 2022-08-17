@@ -91,7 +91,7 @@ def rollout(env:Oil_World, policy):
             if env.market.order_books[0].t2t_deal_amount == 0:
                 zeros += 1
         
-        if zeros >= 800:
+        if zeros > 192:
             r1 = 10000
             rewards.append(r1)
             continue

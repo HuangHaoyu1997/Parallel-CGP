@@ -69,8 +69,8 @@ def pi(a):
 
 def sign(a):
     '''其实是1-sign(x)'''
-    if a>0: return 0
-    else: return 1
+    if a>0: return 1
+    else: return 0
 
 def sin(a):
     return np.sin(a)
@@ -91,6 +91,10 @@ def const_01():
     '''常数0.1'''
     return 0.1
 
+def const_002():
+    '''常数0.02'''
+    return 0.02
+
 def beta(a,b):
     '''Beta分布,[0,1]区间'''
     return np.random.beta(a,b)
@@ -104,13 +108,14 @@ def uniform01():
     return np.random.uniform(0,1)
 
 fs = [
-        Function(const_1, 0),
-        Function(const_5, 0),
-        Function(const_01, 0),
+        # Function(const_1, 0),
+        # Function(const_5, 0),
+        # Function(const_01, 0),
+        Function(const_002, 0),
 
-        Function(op.add, 2), 
+        # Function(op.add, 2), 
         Function(op.sub, 2), 
-        Function(op.mul, 2), 
+        # Function(op.mul, 2), 
         Function(protected_div, 2),
         Function(op.neg, 1),
         Function(op.abs, 1),
@@ -119,11 +124,11 @@ fs = [
         
         # Function(op.pow, 2),
         # Function(exp, 1),
-        Function(max1, 1),
-        Function(min1, 1),
-        Function(max2, 2),
-        Function(min2, 2),
-        Function(tenth, 1),
+        # Function(max1, 1),
+        # Function(min1, 1),
+        # Function(max2, 2),
+        # Function(min2, 2),
+        # Function(tenth, 1),
         # Function(scaled, 1),
         Function(sign, 1),
         # Function(uniform, 2),
@@ -140,7 +145,8 @@ fs = [
 DEFAULT_SYMBOLIC_FUNCTION_MAP = {
     'const_1':              const_1,
     'const_5':              const_5,
-    'const_tenth':          const_01,
+    'const_01':             const_01,
+    'const_002':            const_002,
     # op.and_.__name__:       sp.And,
     # op.or_.__name__:        sp.Or,
     # op.not_.__name__:       sp.Not,
