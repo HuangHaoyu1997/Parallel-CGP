@@ -69,6 +69,9 @@ def pi(a):
 
 def sign(a):
     '''其实是1-sign(x)'''
+    
+    # 注意！！！！！！
+    # 8月15日之前采用的是与下面相反的逻辑
     if a>0: return 1
     else: return 0
 

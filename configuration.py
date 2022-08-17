@@ -1,12 +1,12 @@
 class config:
     seed = 1234
-    N_COLS = 8
-    LEVEL_BACK = 8
+    N_COLS = 15
+    LEVEL_BACK = 15
     Verbose = False
     MU = 2
     LAMBDA = 24 - MU
     n_process = 8
-    N_GEN = 1000
+    N_GEN = 3000
     solved = 300 # for BipedalWalker-v3
     rollout_episode = 3
     MUT_PB = 0.1
