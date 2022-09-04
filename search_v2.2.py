@@ -7,7 +7,6 @@ import numpy as np
 import time, os, random, shutil, pickle, gym, ray
 from cmath import inf
 from cgp import *
-from copy import deepcopy
 import matplotlib.pyplot as plt
 from configuration import config
 from paves.scenarios.oil_world.oil_world import Oil_World, s_g_example

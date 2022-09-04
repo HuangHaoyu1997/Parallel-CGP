@@ -9,9 +9,9 @@ class config:
     N_GEN = 3000
     solved = 300 # for BipedalWalker-v3
     rollout_episode = 3
-    MUT_PB = 0.1
+    MUT_PB = 0.2
     n_steps = 200
-    ckpt_freq = 10
+    ckpt_freq = 1
     sigma0 = 0.2 # for cma initial sigma
     popsize = 30 # for cma population
 
