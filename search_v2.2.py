@@ -32,7 +32,9 @@ if not os.path.exists(dir):
 s_g = s_g_example()
 OW_config = Oil_Config()
 env = Oil_World(OW_config, 1000, 5, 3, 1, 20, 20, 10, smeg_graph=s_g)
-env._change_price_para([0.019,0.038,0.124,0.09,0.0044,0.0168,0.0125])
+# env._change_price_para([0.019,0.038,0.124,0.09,0.0044,0.0168,0.0125])
+# prop_flags = [1]*77
+# env._change_smeg(prop_flags, [0, 0, 1, 1, 1, 1, 1, 1, 0])
 
 @ray.remote
 def rollout(env:Oil_World, policy):
@@ -40,7 +42,7 @@ def rollout(env:Oil_World, policy):
         #####################################
         ## 调整这里
         #####################################
-        # print('aa',input)
+        print('aa',input)
         # close_clip的归一化方案
         # input[0] = 1.0 if input[0] else 0.0
         # input[3] = 1.0 if input[3] else 0.0
@@ -65,7 +67,8 @@ def rollout(env:Oil_World, policy):
                   ## 调整这里
                   ########################################
                   source_nodes=[8,9],
-                  target_nodes=[1])
+                #   source_nodes=[2,3,9,10,12,13,14,15,18],
+                  target_nodes=[11])
     rewards = []
     for _ in range(config.rollout_episode):
         seed = int(str(time.time()).split('.')[1]) # if not test else config.seed
@@ -106,7 +109,7 @@ def rollout(env:Oil_World, policy):
     
 
 pop = create_population(config.MU+config.LAMBDA, 
-                        input_dim=2, 
+                        input_dim=9, 
                         out_dim=1,
                         fs=fs,
                         out_random_active=False)

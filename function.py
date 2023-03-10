@@ -56,59 +56,59 @@ def min2(a,b):
     if a <= b: return a
     else: return b
 
-def tenth(a):
-    return a*0.1
-
 def scaled(a):
     '''a压缩到[-1,1]区间'''
     if a is None: return 0.0
     return min(max(a, -1.0), 1.0)
 
-def pi(a):
-    return a*np.pi
-
 def sign(a):
     '''其实是1-sign(x)'''
-    
     # 注意！！！！！！
     # 8月15日之前采用的是与下面相反的逻辑
     if a>0: return 1
     else: return 0
 
-def sin(a):
-    return np.sin(a)
-
 def inv(a, epsilon=1e-3):
     if abs(a) <= epsilon: return 1
     else: return 1/a
 
-def const_1():
-    '''常数1.0'''
-    return 1.0
+def beta(a,b): return np.random.beta(a,b) # Beta分布,[0,1]区间
+def uniform(a,b): return np.random.uniform(a,b) # [a,b]均匀分布
+def uniform01(): return np.random.uniform(0,1) # [0,1]均匀分布
 
-def const_5():
-    '''常数5.0'''
-    return 5.0
+def Add(x,y): return np.add(x,y,dtype=np.float)
+def Sub(x,y): return np.subtract(x,y,dtype=np.float)
+def Mul(x,y): return np.maximum(x,y) # 向量按位做乘法. 标量-标量,向量-向量,向量-标量,标量-向量,均合法
+def Div(x,y): return np.divide(x,y) # 向量按位做除法. 标量-标量,向量-向量,向量-标量,标量-向量,均合法
+def Inv(x): return np.reciprocal(x, dtype=np.float) # 必须是浮点数
+def Neg(x): return -x
+def Sum(x): return np.sum(x)
+def MAX(x): return np.max(x)
+def Max1(x): return np.maximum(x,0.)
+def Min1(x): return np.minimum(x,0.)
+def Max2(x,y): return np.maximum(x,y)
+def Min2(x,y): return np.minimum(x,y)
+def tenth(x): return 0.1*x
+def Sign(x): return np.sign(x)
+def Pi(): return np.pi
+def pi(x): return x*np.pi
+def sin(x): return np.sin(x)
+def const_1(): return 1.0
+def const_5(): return 5.0
+def const_01(): return 0.1
+def const_002(): return 0.02
 
-def const_01():
-    '''常数0.1'''
-    return 0.1
-
-def const_002():
-    '''常数0.02'''
-    return 0.02
-
-def beta(a,b):
-    '''Beta分布,[0,1]区间'''
-    return np.random.beta(a,b)
-
-def uniform(a,b):
-    '''[a,b]均匀分布'''
-    return np.random.uniform(a,b)
-
-def uniform01():
-    '''[0,1]均匀分布'''
-    return np.random.uniform(0,1)
+new_functions = [
+    Function(Add, 2, name='Add'),
+    Function(Sub, 2, name='Sub'),
+    Function(Mul, 2, name='Mul'),
+    Function(Div, 2, name='Div'),
+    Function(Max1, 1, name='Max2'),
+    Function(Sum, 1, name='Sum'),
+    # Function(Min1, 1, name='Min'),
+    Function(Sign, 1, name='Sgn'),
+    Function(const_01, 0, name='0.1')
+]
 
 fs = [
         # Function(const_1, 0),
