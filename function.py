@@ -90,7 +90,8 @@ def Min1(x): return np.minimum(x,0.)
 def Max2(x,y): return np.maximum(x,y)
 def Min2(x,y): return np.minimum(x,y)
 def tenth(x): return 0.1*x
-def Sign(x): return np.sign(x)
+# def Sign(x): return np.sign(x) # x=0,y=0;x>0,y=1;x<0,y=-1
+def Sign(x): return np.array(np.array(x)>0, np.float)
 def Pi(): return np.pi
 def pi(x): return x*np.pi
 def sin(x): return np.sin(x)
