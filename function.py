@@ -78,7 +78,7 @@ def uniform01(): return np.random.uniform(0,1) # [0,1]均匀分布
 
 def Add(x,y): return np.add(x,y,dtype=np.float)
 def Sub(x,y): return np.subtract(x,y,dtype=np.float)
-def Mul(x,y): return np.maximum(x,y) # 向量按位做乘法. 标量-标量,向量-向量,向量-标量,标量-向量,均合法
+def Mul(x,y): return np.multiply(x,y) # 向量按位做乘法. 标量-标量,向量-向量,向量-标量,标量-向量,均合法
 def Div(x,y): return np.divide(x,y) # 向量按位做除法. 标量-标量,向量-向量,向量-标量,标量-向量,均合法
 def Inv(x): return np.reciprocal(x, dtype=np.float) # 必须是浮点数
 def Neg(x): return -x
