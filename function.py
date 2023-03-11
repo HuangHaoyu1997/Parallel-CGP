@@ -82,6 +82,7 @@ def Mul(x,y): return np.maximum(x,y) # 向量按位做乘法. 标量-标量,向�
 def Div(x,y): return np.divide(x,y) # 向量按位做除法. 标量-标量,向量-向量,向量-标量,标量-向量,均合法
 def Inv(x): return np.reciprocal(x, dtype=np.float) # 必须是浮点数
 def Neg(x): return -x
+def Abs(x): return np.abs(x)
 def Sum(x): return np.sum(x)
 def MAX(x): return np.max(x)
 def Max1(x): return np.maximum(x,0.)
@@ -114,7 +115,7 @@ fs = [
         # Function(const_1, 0),
         # Function(const_5, 0),
         # Function(const_01, 0),
-        Function(const_002, 0),
+        Function(const_01, 0),
 
         # Function(op.add, 2), 
         Function(op.sub, 2), 

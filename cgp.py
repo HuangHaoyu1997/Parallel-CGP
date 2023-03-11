@@ -27,12 +27,13 @@ class Individual:
     
     # 以下是class变量，init内是实例化object的变量
     # max_arity = 3
-    
-    n_cols = config.N_COLS # number of cols (nodes) in a single-row CGP
-    level_back = config.LEVEL_BACK # 后面的节点可以最远连接的前面节点的相对位置
-    fitness = None
+    # fitness = None
 
-    def __init__(self, input_dim, out_dim, function_set=fs, out_random_active=False):
+    def __init__(self, input_dim, out_dim, function_set, n_cols, level_back, out_random_active=False):
+        
+        self.n_cols = n_cols # number of cols (nodes) in a single-row CGP
+        self.level_back = level_back # 后面的节点可以最远连接的前面节点的相对位置
+    
         # 【创新点：给不同位置的node设置不同的function set,人的先验知识可以起作用，可能需要给node class设置一个fun_set】
         self.function_set = function_set
         self.max_arity = max(f.arity for f in fs)
@@ -194,11 +195,13 @@ def evolve(pop, mut_rate, mu, lambda_):
     return parents + offspring
 
 
-def create_population(n, input_dim, out_dim, fs=fs, out_random_active=False):
+def create_population(n, input_dim, out_dim, fs, n_cols, level_back, out_random_active=False):
     """Create a random population composed of n individuals."""
     return [Individual(input_dim, 
                        out_dim, 
                        fs, 
+                       n_cols,
+                       level_back,
                        out_random_active=out_random_active) for _ in range(n)]
 
 

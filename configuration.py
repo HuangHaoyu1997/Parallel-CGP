@@ -1,7 +1,7 @@
 class config:
     seed = 1234
     N_COLS = 15
-    LEVEL_BACK = 15
+    LEVEL_BACK = 8
     Verbose = False
     MU = 2
     LAMBDA = 24 - MU
@@ -9,7 +9,7 @@ class config:
     N_GEN = 3000
     solved = 300 # for BipedalWalker-v3
     rollout_episode = 3
-    MUT_PB = 0.2
+    MUT_PB = 0.05
     n_steps = 200
     ckpt_freq = 1
     sigma0 = 0.2 # for cma initial sigma

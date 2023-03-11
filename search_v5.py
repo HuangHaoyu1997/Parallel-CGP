@@ -24,7 +24,7 @@ def rollout(dataset, policy):
         output = policy.eval(*input)
         if type(output)!=float:
             continue
-        # print(label, output)
+        print(zi, output, zi == output)
         if zi == output:
             count += 1
     return count / len(x)
