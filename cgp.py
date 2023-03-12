@@ -63,7 +63,7 @@ class Individual:
     def _create_random_node(self, pos):
         '''
         pos:该节点的index
-        设: n_inputs=3,level_back=4
+        设: n_inputs=3, level_back=4
 
         in  in  in  0   1   2   3   4   5   6
         *   *   *   *   *   *   *   *   *   *

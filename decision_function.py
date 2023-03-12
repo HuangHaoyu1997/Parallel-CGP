@@ -20,7 +20,7 @@ def decision_func(props_value):
         if quote_type == 0: # 限价单
             if quote_side == 1 and bid_info.shape[0] != 0: # 当前单是卖单
                 if quote_price >= int((1 + bound) * open_price): # 涨停
-                    if quote_price <= bid_info[-1][0]: # 小于买单里的最高价，有可能成交
+                    if quote_price <= bid_info[-1][0]: # 小于买单里。， 的最高价，有可能成交
                         index = bid_info[:,0]>=quote_price # ,1.1*open_price
                         quantity = bid_info[index,1].sum()
                         x = ow.s_g.props[ow.s_g.props_name['quote']].set_value([0, 1, np.abs(quantity), int((1+dp)*open_price), 0, -1]).quote

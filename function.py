@@ -84,7 +84,7 @@ def Inv(x): return np.reciprocal(x, dtype=np.float) # 必须是浮点数
 def Neg(x): return -x
 def Abs(x): return np.abs(x)
 def Sum(x): return np.sum(x)
-def MAX(x): return np.max(x)
+def MAX(x): return np.max(x) # 向量x中的最大元素
 def Max1(x): return np.maximum(x,0.)
 def Min1(x): return np.minimum(x,0.)
 def Max2(x,y): return np.maximum(x,y)
