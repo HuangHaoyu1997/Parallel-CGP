@@ -151,3 +151,4 @@ def decision_func(props_value):
                         quote_list.append(x)
                         # quote_list.append([0, 0, p, np.abs(q), 0, -1])
     return quote_list
+
