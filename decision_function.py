@@ -1,3 +1,5 @@
+import numpy as np
+
 
 def decision_func(props_value):
     t2t_price = props_value[0]
