@@ -89,7 +89,6 @@ def Max1(x): return np.maximum(x,0.)
 def Min1(x): return np.minimum(x,0.)
 def Max2(x,y): return np.maximum(x,y)
 def Min2(x,y): return np.minimum(x,y)
-def tenth(x): return 0.1*x
 # def Sign(x): return np.sign(x) # x=0,y=0;x>0,y=1;x<0,y=-1
 def Sign(x): return np.array(np.array(x)>0, np.float)
 def Pi(): return np.pi
@@ -99,7 +98,40 @@ def const_1(): return 1.0
 def const_5(): return 5.0
 def const_01(): return 0.1
 def const_002(): return 0.02
+def x11(x): return 1.1*x
+def x09(x): return 0.9*x
+def x01(x): return 0.1*x
+def Sum3(x,y,z):
+    '''    x, 向量    y, 标量    z, 向量
+    '''
+    if type(x) != np.ndarray: return 0
+    if type(y) == np.ndarray: return 0
+    if type(z) != np.ndarray: return 0
+    return z[x>=y].sum()
+def Sum3_(x,y,z):
+    if type(x) != np.ndarray: return 0
+    if type(y) == np.ndarray: return 0
+    if type(z) != np.ndarray: return 0
+    return z[x<=y].sum()
+def LimUp_(hold_p, open_p):
+    return np.maximum(np.sign(hold_p - 1.1*open_p), 0)
+def LimDown_(hold_p, open_p):
+    return np.maximum(-np.sign(hold_p - 0.9*open_p), 0)
+def LimUp(quote_q, open_p):
+    '''limit-up'''
+    if type(open_p)==np.ndarray or type(quote_q)==np.ndarray:
+        return 0
+    if quote_q >= int(1.1 * open_p):
+        return 1
+    else: return 0
 
+def LimDown(quote_q, open_p):
+    if type(open_p)==np.ndarray or type(quote_q)==np.ndarray:
+        return 0
+    if quote_q <= int(0.9 * open_p):
+        return 1
+    else: return 0
+    
 new_functions = [
     Function(Add, 2, name='Add'),
     Function(Sub, 2, name='Sub'),
@@ -165,7 +197,7 @@ DEFAULT_SYMBOLIC_FUNCTION_MAP = {
     'min1':                 min1,
     'max2':                 max2,
     'min2':                 min2,
-    'tenth':                tenth,
+    '×':                x01,
     'scaled':               scaled,
     'sign':                 sign,
     
