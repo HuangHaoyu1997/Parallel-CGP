@@ -224,7 +224,7 @@ LUNARLANDER_SYMBOLIC_FUNCTION_MAP = {
     op.mul.__name__:        op.mul,
     op.neg.__name__:        op.neg,
     'max1':                 max1,
-    'tenth':                tenth,
+    '×01':                x01,
     'scaled':               scaled,
     'sign':                 sign,
     'abs':                  op.abs,
